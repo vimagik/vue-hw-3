@@ -4,7 +4,7 @@ defineProps(['product-data'])
 
 <template>
     <div>
-        <v-card class="mx-3 my-2 d-flex flex-column" width="350" height="100%">
+        <v-card class="mx-3 mb-2 d-flex flex-column" width="350" height="100%">
             <v-img class="mt-2" :src="productData.image" max-height="200"></v-img>
             <v-card-text>
                 <p class="text-h6">{{ productData.title }}</p>

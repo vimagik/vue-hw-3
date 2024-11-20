@@ -20,11 +20,18 @@ const filteredData = computed(() => {
 </script>
 
 <template>
-  <v-container>
+  <v-container fluid>
     <AppHeader v-model="searchStr" />
     <v-progress-linear v-if="!data" class="mt-3" color="cyan" indeterminate></v-progress-linear>
-    <v-row v-else class="d-flex justify-center mt-3">
-      <ProductCard class="mt-5" v-for="product in filteredData" :key="product.id" :product-data="product" />
+    <v-row v-else class="mt-3">
+      <v-col cols="2">
+        <ProductCardSearch v-model="searchStr" />
+      </v-col>
+      <v-col>
+        <v-row class="d-flex justify-center ">
+          <ProductCard class="mt-5" v-for="product in filteredData" :key="product.id" :product-data="product" />
+        </v-row>
+      </v-col>
     </v-row>
   </v-container>
 </template>
