@@ -1,5 +1,9 @@
 <script setup>
+import { ref } from 'vue'
+
 defineProps(['product-data'])
+
+const count = ref(0)
 </script>
 
 <template>
@@ -18,8 +22,10 @@ defineProps(['product-data'])
                 </div>
                 <p class="mt-3">{{ productData.description }}</p>
             </v-card-text>
-            <v-card-actions class="align-end">
-                <v-btn color="primary">Купить</v-btn>
+            <v-card-actions class="d-flex align-start">
+                <v-text-field v-model="count" variant="outlined" type="number" max-width="70"
+                    density="compact"></v-text-field>
+                <v-btn color="primary" height="40">В корзину</v-btn>
             </v-card-actions>
         </v-card>
     </div>

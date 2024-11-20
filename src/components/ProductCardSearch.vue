@@ -1,10 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-
-const props = defineProps(["minPrice", "maxPrice"])
+defineProps(["minPrice", "maxPrice"])
 
 const searchStr = defineModel()
-const price = ref([props.minPrice, props.maxPrice])
+const price = defineModel('rangePrice')
 </script>
 
 <template>
