@@ -31,6 +31,8 @@ watch([searchStr, () => rangePrice.value], ([newStr, newRange]) => {
     )
   }
 })
+
+const dialog = ref(false)
 </script>
 
 <template>
@@ -44,9 +46,11 @@ watch([searchStr, () => rangePrice.value], ([newStr, newRange]) => {
       </v-col>
       <v-col>
         <v-row class="d-flex justify-center ">
-          <ProductCard class="mt-5" v-for="product in filteredData" :key="product.id" :product-data="product" />
+          <ProductCard class="mt-5" v-for="product in filteredData" :key="product.id" :product-data="product"
+            @buy="dialog = true" />
         </v-row>
       </v-col>
     </v-row>
+    <ShoppingCart v-model="dialog" />
   </v-container>
 </template>
